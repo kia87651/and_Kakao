@@ -21,6 +21,9 @@ public class Main extends AppCompatActivity {
         findViewById(R.id.moveLogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SqliteHelper helper = new SqliteHelper(ctx);
+                // 'helper'라는 객체를 만드는 것은
+                // 곧 'SQLite DB'를 만드는 것이다.
                 startActivity(new Intent(ctx, Login.class));
             }
         });
@@ -42,9 +45,7 @@ public class Main extends AppCompatActivity {
         public abstract SQLiteDatabase getDatabase();
     }
     static class SqliteHelper extends SQLiteOpenHelper {
-        public SqliteHelper(Context context, String name,
-                            SQLiteDatabase.CursorFactory factory,
-                            int version) {
+        public SqliteHelper(Context context) {
             super(context, DBInfo.DBNAME, null, 1);
             this.getWritableDatabase();
         }
@@ -59,7 +60,7 @@ public class Main extends AppCompatActivity {
                     " %s Text,"+
                     " %s Text,"+
                     " %s Text,"+
-                    " %s Text,"+
+                    " %s Text"+
                             ") ",
                     DBInfo.MBR_TABLE,
                     DBInfo.MBR_SEQ,
@@ -76,18 +77,18 @@ public class Main extends AppCompatActivity {
             String[] names = {"아이린", "웬디", "슬기", "조이", "예리"};
             String[] emails = {"irin@naver.com", "wendy@naver.com",
                     "seulgi@naver.com", "joy@naver.com", "yery@naver.com"};
-            String[] addr = {"강동구", "강남구", "종로구", "동대문구", "중구"};
+            String[] addr = {"강동구", "강남구", "강서구", "강북구", "종로구"};
             for(int i = 0; i < names.length; i++){
                 Log.d("입력하는 이름 : ", names[i]);
                 db.execSQL(String.format(
                         " INSERT INTO %s " +
                         " ( %s ," +
-                        " ( %s ," +
-                        " ( %s ," +
-                        " ( %s ," +
-                        " ( %s ," +
-                        " ( %s " +
-                        ")VAULES( "+
+                        "  %s ," +
+                        "  %s ," +
+                        "  %s ," +
+                        "  %s ," +
+                        "  %s " +
+                        ")VALUES( "+
                         "'%s'," +
                         "'%s'," +
                         "'%s'," +
@@ -105,7 +106,8 @@ public class Main extends AppCompatActivity {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+            db.execSQL("DROP TABLE IF EXISTS " +DBInfo.MBR_TABLE);
+            onCreate(db);
         }
     }
 }

@@ -2,6 +2,7 @@ package com.example.a405_16.kakao;
 
 public class Member {
     int seq;
+    String name, pass, email, phone, addr, photo;
 
     public String getName() {
         return name;
@@ -50,6 +51,4 @@ public class Member {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-
-    String name, pass, email, phone, addr, photo;
 }
