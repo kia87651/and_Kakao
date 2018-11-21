@@ -4,6 +4,14 @@ public class Member {
     int seq;
     String name, pass, email, phone, addr, photo;
 
+    public int getSeq() {
+        return seq;
+    }
+
+    public void setSeq(int seq) {
+        this.seq = seq;
+    }
+
     public String getName() {
         return name;
     }
@@ -50,5 +58,18 @@ public class Member {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "seq=" + seq +
+                ", name='" + name + '\'' +
+                ", pass='" + pass + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", addr='" + addr + '\'' +
+                ", photo='" + photo + '\'' +
+                '}';
     }
 }

@@ -11,7 +11,7 @@ public class MBR_Update extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mbr__update);
+        setContentView(R.layout.mbr_update);
         final Context ctx = MBR_Update.this;
         findViewById(R.id.btnDetail).setOnClickListener(new View.OnClickListener() {
             @Override

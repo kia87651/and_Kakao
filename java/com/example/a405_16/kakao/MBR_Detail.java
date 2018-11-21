@@ -11,7 +11,7 @@ public class MBR_Detail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mbr__detail);
+        setContentView(R.layout.mbr_detail);
         final Context ctx = MBR_Detail.this;
         findViewById(R.id.btnList).setOnClickListener(new View.OnClickListener() {
             @Override
