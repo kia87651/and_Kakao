@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a405_16.kakao">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +22,9 @@
         <activity android:name=".MBRList" />
         <activity android:name=".MBR_Detail" />
         <activity android:name=".MBR_Update" />
-        <activity android:name=".MBR_List"></activity>
+        <activity android:name=".MBR_List" />
+        <activity android:name=".MBR_Add" />
+        <activity android:name=".util.Album"></activity>
     </application>
 
 </manifest>

@@ -28,16 +28,16 @@ public class Main extends AppCompatActivity {
             }
         });
     }
-    static interface ExecuteService {
+    public static interface ExecuteService {
         public void perfome();
     }
-    static interface  ListService {
+    public static interface  ListService {
         public List<?> perfome();
     }
-    static interface ObjectService {
+    public static interface ObjectService {
         public Object perfome();
     }
-    static abstract class QueryFactory {
+    public static abstract class QueryFactory {
         Context ctx;
         public QueryFactory(Context ctx) {
             this.ctx = ctx;
@@ -98,9 +98,10 @@ public class Main extends AppCompatActivity {
                         ")",
                         DBInfo.MBR_TABLE, DBInfo.MBR_NAME, DBInfo.MBR_PASS, DBInfo.MBR_EMAIL,
                         DBInfo.MBR_ADDR, DBInfo.MBR_PHONE, DBInfo.MBR_PHOTO,
-                        names[i], emails[i], '1', addr[i], "010-1234-567"+i, "PHOTO_"+i+1
+                        names[i], emails[i], '1', addr[i], "010-1234-567"+i,"photo_"+(i+1)
                 ));
             }
+
             Log.d("======================","친구등록완료");
         }
 
